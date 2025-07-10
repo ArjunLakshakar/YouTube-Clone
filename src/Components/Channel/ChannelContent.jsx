@@ -17,7 +17,7 @@ const ChannelContent = () => {
       const token = localStorage.getItem("token");
       if (!token) return console.error("Token missing!");
       try {
-        const res = await axios.get("http://localhost:3000/getChannelVideos", {
+        const res = await axios.get("https://youtube-clone-iy0r.onrender.com/getChannelVideos", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setVideos(res.data.videos || []);
@@ -36,7 +36,7 @@ const ChannelContent = () => {
   const handleEditSubmit = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:3000/editVideo/${currentVideo.videoId}`,
+        `https://youtube-clone-iy0r.onrender.com/editVideo/${currentVideo.videoId}`,
         {
           title: currentVideo.title,
           description: currentVideo.description,
@@ -61,7 +61,7 @@ const ChannelContent = () => {
   const handleDelete = async (videoId) => {
     if (!window.confirm("Are you sure you want to delete this video?")) return;
     try {
-      await axios.delete(`http://localhost:3000/deleteVideo/${videoId}`, {
+      await axios.delete(`https://youtube-clone-iy0r.onrender.com/deleteVideo/${videoId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -117,7 +117,7 @@ const ChannelContent = () => {
                 >
                   <td className="p-2 flex items-center gap-3 w-72">
                     <img
-                      src={`http://localhost:3000${video.thumbnail}`} alt={video.title}
+                      src={`https://youtube-clone-iy0r.onrender.com${video.thumbnail}`} alt={video.title}
                       className="w-28 h-20 object-cover rounded"
                     />
                     <div className="w-40">

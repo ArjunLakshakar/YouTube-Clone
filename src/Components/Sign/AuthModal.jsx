@@ -21,8 +21,8 @@ const AuthModal = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const endpoint = isLogin
-      ? "http://localhost:3000/login"
-      : "http://localhost:3000/register";
+      ? "https://youtube-clone-iy0r.onrender.com/login"
+      : "https://youtube-clone-iy0r.onrender.com/register";
     try {
       const response = await axios.post(endpoint, formData);
       if (isLogin) {

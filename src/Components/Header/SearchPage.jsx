@@ -15,7 +15,7 @@ const SearchPage = () => {
         const loadVideos = async () => {
             try {
                 setLoading(true);
-                const res = await axios.get(`http://localhost:3000/searchVideos?query=${encodeURIComponent(query)}`);
+                const res = await axios.get(`https://youtube-clone-iy0r.onrender.com/searchVideos?query=${encodeURIComponent(query)}`);
                 setVideos(res.data.videos || []);
             } catch (err) {
                 console.error('Search error:', err);
@@ -49,7 +49,7 @@ const SearchPage = () => {
                             >
                                 {/* Thumbnail */}
                                 <img
-                                    src={`http://localhost:3000${video.thumbnail}`} alt={video.title}
+                                    src={`https://youtube-clone-iy0r.onrender.com${video.thumbnail}`} alt={video.title}
                                     onError={(e) => {
                                         e.target.onerror = null;
                                         e.target.src = '/assets/no-thumbnail.png';
