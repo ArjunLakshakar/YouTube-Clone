@@ -40,9 +40,10 @@ function Navbar() {
 
     useEffect(() => {
         const storedTheme = localStorage.getItem('theme');
-        if (storedTheme === 'dark') {
+        if (!storedTheme || storedTheme === 'dark') {
             document.documentElement.classList.add('dark');
             setDarkMode(true);
+            localStorage.setItem('theme', 'dark'); // store it
         } else {
             document.documentElement.classList.remove('dark');
             setDarkMode(false);
@@ -148,7 +149,7 @@ function Navbar() {
                             onKeyDown={(e) => {
                                 const trimmed = searchInput.trim();
                                 if (e.key === 'Enter') {
-                                    if (trimmed.length === 0) return; 
+                                    if (trimmed.length === 0) return;
                                     navigate(`/search/${encodeURIComponent(trimmed)}`);
                                 }
                             }}
