@@ -70,7 +70,7 @@ const UploadModal = ({ isOpen, onClose }) => {
       formData.append('category', category);
       formData.append('isForKids', form.isForKids);
 
-      await axios.post('http://localhost:3000/addChannelVideo', formData, {
+      await axios.post('https://youtube-clone-82b4.onrender.com/addChannelVideo', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

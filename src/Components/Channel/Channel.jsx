@@ -25,7 +25,7 @@ const Channel = () => {
         // fetch channel data
         const fetchMyChannel = async () => {
             try {
-                const res = await axios.get("http://localhost:3000/getChannel", {
+                const res = await axios.get("https://youtube-clone-82b4.onrender.com/getChannel", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setChannelData(res.data?.channel);
@@ -37,7 +37,7 @@ const Channel = () => {
         // fetch channel vidoes
         const fetchMyVideos = async () => {
             try {
-                const res = await axios.get("http://localhost:3000/getChannelVideos", {
+                const res = await axios.get("https://youtube-clone-82b4.onrender.com/getChannelVideos", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setVideos(res.data.videos || []);
@@ -49,7 +49,7 @@ const Channel = () => {
         // fetching others channel data
         const fetchChannelById = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/getChannelById/${channelId}`, {
+                const res = await axios.get(`https://youtube-clone-82b4.onrender.com/getChannelById/${channelId}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 const channel = res.data?.channel;
@@ -80,7 +80,7 @@ const Channel = () => {
 
     const handleSubscribeToggle = async () => {
         try {
-            const res = await axios.put(`http://localhost:3000/subscribe/${channelData.channelId}`, {}, {
+            const res = await axios.put(`https://youtube-clone-82b4.onrender.com/subscribe/${channelData.channelId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -188,7 +188,7 @@ const Channel = () => {
                         <div key={index} className="rounded-xl shadow bg-zinc-100 dark:bg-zinc-800 overflow-hidden"
                             onClick={() => navigate(`/watch/${video.videoId}`)}>
                             <img
-                                src={`http://localhost:3000${video.thumbnail}`} alt={video.title}
+                                src={`https://youtube-clone-82b4.onrender.com${video.thumbnail}`} alt={video.title}
                                 className="w-full h-40 sm:h-44 md:h-48 object-cover"
                             />
                             <div className="p-4">

@@ -41,7 +41,7 @@ const CreateChannelModal = ({ isOpen, onClose }) => {
 
         try {
             const response = await axios.post(
-                'http://localhost:3000/createChannel',
+                'https://youtube-clone-82b4.onrender.com/createChannel',
                 {
                     channelName: form.channelName,
                     handle: form.handle,
