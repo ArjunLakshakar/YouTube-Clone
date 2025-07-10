@@ -13,7 +13,7 @@ const VideoPlayer = ({ videoUrl, onClose }) => {
           ✕
         </button>
         <video controls autoPlay className="w-full h-full rounded-xl">
-          <source src={`https://youtube-clone-82b4.onrender.com${videoUrl}`} type="video/mp4" />
+          <source src={`http://localhost:3000${videoUrl}`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

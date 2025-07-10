@@ -11,7 +11,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 5000;
+
 
 const __dirname = path.resolve();
 
@@ -54,4 +55,4 @@ mongoose.connection.once('open', () => console.log('MongoDB connected'));
 // Routes
 routes(app, upload);
 
-app.listen(port, () => console.log(`Server is running at http://localhost:${port}`));
+app.listen(PORT, () => console.log(`Server is running at http://localhost:${PORT}`));

@@ -50,7 +50,7 @@ const WatchPage = () => {
         const fetchVideoDetails = async () => {
             try {
                 setIsLoading(true);
-                const res = await axios.get(`https://youtube-clone-82b4.onrender.com/getVideo/${videoId}`, {
+                const res = await axios.get(`http://localhost:3000/getVideo/${videoId}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     },
@@ -74,7 +74,7 @@ const WatchPage = () => {
 
         const fetchRelatedVideos = async () => {
             try {
-                const res = await axios.get('https://youtube-clone-82b4.onrender.com/getAllVideos');
+                const res = await axios.get('http://localhost:3000/getAllVideos');
                 setRelatedVideos(res.data.videos || []);
             } catch (error) {
                 console.error('Error fetching related videos:', error);
@@ -83,7 +83,7 @@ const WatchPage = () => {
 
         const fetchComments = async () => {
             try {
-                const res = await axios.get(`https://youtube-clone-82b4.onrender.com/getComments/${videoId}`);
+                const res = await axios.get(`http://localhost:3000/getComments/${videoId}`);
                 setComments(res.data.comments || []);
             } catch (error) {
                 console.error('Error fetching comments:', error);
@@ -102,7 +102,7 @@ const WatchPage = () => {
                 showInfo("Login Required", "Login to comment on this video.");
                 return;
             }
-            const res = await axios.post(`https://youtube-clone-82b4.onrender.com/addComment/${videoId}`, {
+            const res = await axios.post(`http://localhost:3000/addComment/${videoId}`, {
                 comment: commentText
             },
                 {
@@ -126,7 +126,7 @@ const WatchPage = () => {
                 return;
             }
 
-            const err = await axios.delete(`https://youtube-clone-82b4.onrender.com/deleteComment/${videoId}/${commentId}`, {
+            const err = await axios.delete(`http://localhost:3000/deleteComment/${videoId}/${commentId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -146,7 +146,7 @@ const WatchPage = () => {
                 return;
             }
             await axios.put(
-                `https://youtube-clone-82b4.onrender.com/editComment/${videoId}/${commentId}`,
+                `http://localhost:3000/editComment/${videoId}/${commentId}`,
                 { text: editedText },
                 {
                     headers: {
@@ -184,7 +184,7 @@ const WatchPage = () => {
         }
 
         try {
-            const res = await axios.put(`https://youtube-clone-82b4.onrender.com/subscribe/${channelData.channelId}`, {}, {
+            const res = await axios.put(`http://localhost:3000/subscribe/${channelData.channelId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -206,7 +206,7 @@ const WatchPage = () => {
                 showInfo("Login Required", "Login to like this video.");
                 return;
             }
-            const res = await axios.put(`https://youtube-clone-82b4.onrender.com/like/${videoId}`, {}, {
+            const res = await axios.put(`http://localhost:3000/like/${videoId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -227,7 +227,7 @@ const WatchPage = () => {
                 showInfo("Login Required", "Login to dislike this video.");
                 return;
             }
-            const res = await axios.put(`https://youtube-clone-82b4.onrender.com/dislike/${videoId}`, {}, {
+            const res = await axios.put(`http://localhost:3000/dislike/${videoId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -249,7 +249,7 @@ const WatchPage = () => {
             {/* Main Video Content */}
             <div className="lg:w-2/3 w-full">
                 <video key={videoId} controls className="w-full rounded-xl aspect-video mb-4">
-                    <source src={`https://youtube-clone-82b4.onrender.com${videoData.videoFile}`} type="video/mp4" />
+                    <source src={`http://localhost:3000${videoData.videoFile}`} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
 
@@ -339,7 +339,7 @@ const WatchPage = () => {
                                     onClick={() => navigate(`/watch/${id}`)}
                                 >
                                     <img
-                                        src={`https://youtube-clone-82b4.onrender.com${video.thumbnail}`} alt={video.title}
+                                        src={`http://localhost:3000${video.thumbnail}`} alt={video.title}
                                         className="w-full h-40 sm:h-36 md:h-32 rounded-lg object-cover"
                                     />
                                     <div className="flex flex-col">
@@ -495,7 +495,7 @@ const WatchPage = () => {
                             onClick={() => navigate(`/watch/${id}`)}
                         >
                             <img
-                                src={`https://youtube-clone-82b4.onrender.com${video.thumbnail}`} alt={video.title}
+                                src={`http://localhost:3000${video.thumbnail}`} alt={video.title}
                                 className="w-44 h-32 rounded-lg object-cover"
                             />
                             <div className="flex flex-col">

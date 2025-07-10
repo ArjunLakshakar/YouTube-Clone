@@ -29,7 +29,7 @@ const ChannelSettings = () => {
         if (!token) return console.error("Token missing!");
 
         try {
-            const res = await axios.get("https://youtube-clone-82b4.onrender.com/getChannel", {
+            const res = await axios.get("http://localhost:3000/getChannel", {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -76,7 +76,7 @@ const ChannelSettings = () => {
         const token = localStorage.getItem("token");
 
         try {
-            await axios.put("https://youtube-clone-82b4.onrender.com/updateChannel", {
+            await axios.put("http://localhost:3000/updateChannel", {
                 bannerImage: form.bannerImage,
                 profileImage: form.profileImage,
                 name: form.name,

@@ -18,7 +18,7 @@ const HomePage = () => {
 
   const loadInitialVideos = async () => {
     try {
-      const res = await axios.get('https://youtube-clone-82b4.onrender.com/getAllVideos');
+      const res = await axios.get('http://localhost:3000/getAllVideos');
       const initialVideos = res.data.videos || [];
       setVideos(initialVideos);
     } catch (error) {
@@ -34,8 +34,8 @@ const HomePage = () => {
     try {
       const url =
         category === "All"
-          ? "https://youtube-clone-82b4.onrender.com/getAllVideos"
-          : `https://youtube-clone-82b4.onrender.com/getAllVideos?category=${category.toLowerCase()}`;
+          ? "http://localhost:3000/getAllVideos"
+          : `http://localhost:3000/getAllVideos?category=${category.toLowerCase()}`;
       const res = await axios.get(url);
       setVideos(res.data.videos || []);
     } catch (error) {
@@ -66,7 +66,7 @@ const HomePage = () => {
                 onClick={() => navigate(`/watch/${video.videoId}`)}
               >
                 <img
-                  src={`https://youtube-clone-82b4.onrender.com${video.thumbnail}`} alt={video.title}
+                  src={`http://localhost:3000${video.thumbnail}`} alt={video.title}
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = '/assets/no-thumbnail.png';
