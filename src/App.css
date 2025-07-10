@@ -1,0 +1,16 @@
+.mantine-Notifications-root {
+    top: 10px !important;
+    bottom: unset !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 12000 !important;
+}
+
+.mantine-Notification-root {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
